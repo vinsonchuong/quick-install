@@ -1,13 +1,13 @@
 {
-  "name": "test-install",
+  "name": "quick-install",
   "version": "0.0.0",
   "description": "An awesome package",
   "keywords": [],
-  "homepage": "https://github.com/vinsonchuong/test-install",
-  "bugs": "https://github.com/vinsonchuong/test-install/issues",
+  "homepage": "https://github.com/vinsonchuong/quick-install",
+  "bugs": "https://github.com/vinsonchuong/quick-install/issues",
   "license": "MIT",
   "author": "Vinson Chuong <vinsonchuong@gmail.com>",
-  "repository": "vinsonchuong/test-install",
+  "repository": "vinsonchuong/quick-install",
   "scripts": {
     "test": "xo && ava",
     "release": "semantic-release"
