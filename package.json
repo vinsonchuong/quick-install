@@ -1,7 +1,7 @@
 {
   "name": "quick-install",
   "version": "0.0.0",
-  "description": "An awesome package",
+  "description": "Quickly install the package you're working on for faster tests",
   "keywords": [],
   "homepage": "https://github.com/vinsonchuong/quick-install",
   "bugs": "https://github.com/vinsonchuong/quick-install/issues",
@@ -13,14 +13,20 @@
     "release": "semantic-release"
   },
   "type": "module",
-  "dependencies": {},
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  },
   "devDependencies": {
     "ava": "^3.12.1",
     "semantic-release": "^17.1.1",
+    "tempy": "^0.6.0",
     "xo": "^0.33.1"
   },
   "ava": {
-    "verbose": true
+    "verbose": true,
+    "files": [
+      "**/*.test.js"
+    ]
   },
   "xo": {
     "prettier": true,
@@ -30,6 +36,7 @@
       "import/extensions": "off",
       "import/no-anonymous-default-export": "off",
       "import/no-useless-path-segments": "off",
+      "no-await-in-loop": "off",
       "unicorn/import-index": "off"
     }
   }
