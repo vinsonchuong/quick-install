@@ -1,5 +1,6 @@
 {
   "name": "fixture-project",
+  "version": "0.0.0",
   "type": "module",
   "bin": {
     "some-bin": "./some-bin.js"
