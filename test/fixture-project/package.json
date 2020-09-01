@@ -4,5 +4,8 @@
   "type": "module",
   "bin": {
     "some-bin": "./some-bin.js"
+  },
+  "dependencies": {
+    "react": "*"
   }
 }
