@@ -7,7 +7,9 @@ const exec = promisify(childProcess.exec)
 
 export default async function (packagePath, targetPath) {
   if (process.env.CI) {
-    await exec(`yarn add file:${packagePath}`, {cwd: targetPath})
+    await exec(`yarn add --network-concurrency 1 file:${packagePath}`, {
+      cwd: targetPath
+    })
   } else {
     const {name: packageName, bin = {}} = await fs.readJson(
       path.resolve(packagePath, 'package.json')
