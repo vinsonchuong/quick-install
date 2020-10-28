@@ -1,6 +1,6 @@
-import * as childProcess from 'child_process'
+import childProcess from 'child_process'
 import {promisify} from 'util'
-import * as path from 'path'
+import path from 'path'
 import fs from 'fs-extra'
 
 const exec = promisify(childProcess.exec)

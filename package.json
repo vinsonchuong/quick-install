@@ -17,10 +17,10 @@
     "fs-extra": "^9.0.1"
   },
   "devDependencies": {
-    "ava": "^3.12.1",
-    "semantic-release": "^17.1.1",
-    "tempy": "^0.6.0",
-    "xo": "^0.33.1"
+    "ava": "^3.13.0",
+    "semantic-release": "^17.2.1",
+    "tempy": "^1.0.0",
+    "xo": "^0.34.1"
   },
   "ava": {
     "verbose": true,

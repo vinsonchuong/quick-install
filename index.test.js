@@ -1,6 +1,6 @@
 import test from 'ava'
-import * as path from 'path'
-import * as childProcess from 'child_process'
+import path from 'path'
+import childProcess from 'child_process'
 import {promisify} from 'util'
 import fs from 'fs-extra'
 import tempy from 'tempy'
