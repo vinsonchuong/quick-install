@@ -11,10 +11,6 @@ performing a fake package installation. Given a target directory, the package is
 symlinked into its `node_modules` directory, and any executables (listed in the
 `bin` field of `package.json`) are symlinked into `node_modules/.bin`
 
-If run in a CI environment (detected via the presence of the `CI` environment
-variable), `quick-install` will instead use `yarn add file:` to ensure correct
-dependency resolution.
-
 ## Usage
 Install [quick-install](https://www.npmjs.com/package/quick-install)
 by running:
