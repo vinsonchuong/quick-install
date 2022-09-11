@@ -2,35 +2,27 @@ import path from 'node:path'
 import childProcess from 'node:child_process'
 import {promisify} from 'node:util'
 import test from 'ava'
-import fs from 'fs-extra'
-import tempy from 'tempy'
+import {useTemporaryDirectory} from 'ava-patterns'
 import install from './index.js'
 
 const exec = promisify(childProcess.exec)
 
 test('installing a package', async (t) => {
-  const directory = tempy.directory()
+  const directory = await useTemporaryDirectory(t)
 
-  await fs.ensureDir(directory)
-  t.teardown(async () => {
-    await fs.remove(directory)
-  })
+  await install(path.resolve('test', 'fixture-project'), directory.path)
 
-  await install(path.resolve('test', 'fixture-project'), directory)
-
-  await fs.writeFile(
-    path.resolve(directory, 'index.mjs'),
+  await directory.writeFile(
+    'index.mjs',
     `
       import text from 'fixture-project'
       export default text
-    `
+    `,
   )
 
-  t.is(
-    (await import(path.resolve(directory, 'index.mjs'))).default,
-    'Hello World!'
-  )
+  const m = await import(path.resolve(directory.path, 'index.mjs'))
+  t.is(m.default, 'Hello World!')
 
-  const {stdout} = await exec('npx some-bin', {cwd: directory})
+  const {stdout} = await exec('npx some-bin', {cwd: directory.path})
   t.true(stdout.includes('Hello World!'))
 })
